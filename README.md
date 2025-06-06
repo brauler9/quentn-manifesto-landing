@@ -1,73 +1,55 @@
-# Welcome to your Lovable project
 
-## Project info
+# Quentn Download Page - Drupal 7 Modul
 
-**URL**: https://lovable.dev/projects/d8141ece-e76e-416e-a192-d2943d621b43
+Dieses Modul erstellt eine Download-Seite für den Quentn 13-Schritte-Report in Drupal 7.94.
 
-## How can I edit this code?
+## Installation
 
-There are several ways of editing your application.
+1. Kopieren Sie den gesamten `quentn_download` Ordner in das `sites/all/modules/` Verzeichnis Ihrer Drupal-Installation.
 
-**Use Lovable**
+2. Erstellen Sie einen `images` Ordner im Modulverzeichnis und fügen Sie folgende Bilder hinzu:
+   - `quentn-logo.png` (das Quentn Logo)
+   - `report-cover.png` (das Report Cover)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d8141ece-e76e-416e-a192-d2943d621b43) and start prompting.
+3. Aktivieren Sie das Modul über die Admin-Oberfläche unter `admin/modules` oder via Drush:
+   ```bash
+   drush en quentn_download
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+4. Die Seite ist nun unter `/quentn-download` verfügbar.
 
-**Use your preferred IDE**
+## Funktionen
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Responsive Design**: Funktioniert auf allen Geräten
+- **AJAX Download**: Simuliert Download-Prozess mit Ladeanimation
+- **Toast Benachrichtigungen**: Benutzerfreundliche Erfolgsmeldungen
+- **SEO optimiert**: Meta-Tags und semantische HTML-Struktur
+- **Quentn Branding**: Verwendet die exakten Quentn Farben und Helvetica Schriftart
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Anpassungen
 
-Follow these steps:
+### Bilder ersetzen
+Ersetzen Sie die Bilder im `images/` Ordner des Moduls.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Texte ändern
+Bearbeiten Sie die Template-Datei `quentn-download-page.tpl.php`.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Styling anpassen
+Modifizieren Sie die `quentn_download.css` Datei.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Download-Funktionalität
+Erweitern Sie die `quentn_download_ajax()` Funktion in der `.module` Datei um echte Download-Logik.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Technische Details
 
-**Edit a file directly in GitHub**
+- **Drupal Version**: 7.94 kompatibel
+- **Dependencies**: Keine zusätzlichen Module erforderlich
+- **Browser Support**: Alle modernen Browser
+- **Accessibility**: WCAG 2.1 konform
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## URL Structure
 
-**Use GitHub Codespaces**
+- Hauptseite: `/quentn-download`
+- AJAX Endpoint: `/quentn-download/ajax`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/d8141ece-e76e-416e-a192-d2943d621b43) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Das Modul registriert automatisch die Routen und Template-Dateien.

@@ -1,0 +1,365 @@
+
+/* Quentn Download Page Styles */
+
+/* Import Helvetica font */
+@import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@400;500;600;700&display=swap');
+
+/* Reset and base styles */
+.quentn-download-page * {
+  box-sizing: border-box;
+}
+
+.quentn-download-page {
+  font-family: 'Helvetica', Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e6f3ff 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Geometric background elements */
+.quentn-download-page::before {
+  content: '';
+  position: fixed;
+  top: -80px;
+  right: -80px;
+  width: 160px;
+  height: 160px;
+  background: rgba(0, 174, 216, 0.1);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.quentn-download-page::after {
+  content: '';
+  position: fixed;
+  top: 25%;
+  left: -40px;
+  width: 128px;
+  height: 128px;
+  background: rgba(251, 171, 75, 0.1);
+  transform: rotate(12deg);
+  z-index: 1;
+}
+
+.geometric-element-1 {
+  position: fixed;
+  bottom: 25%;
+  right: 25%;
+  width: 96px;
+  height: 96px;
+  background: rgba(24, 59, 88, 0.1);
+  transform: rotate(-12deg);
+  z-index: 1;
+}
+
+.geometric-element-2 {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 112px;
+  height: 112px;
+  background: rgba(0, 174, 216, 0.05);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+/* Container */
+.quentn-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* Header */
+.quentn-header {
+  margin-bottom: 48px;
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.quentn-logo {
+  height: 64px;
+  width: auto;
+  margin-bottom: 32px;
+}
+
+/* Main content grid */
+.quentn-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+@media (min-width: 1024px) {
+  .quentn-main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Content column */
+.quentn-content {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.quentn-pre-headline {
+  color: #00AED8;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+}
+
+.quentn-headline {
+  font-size: 36px;
+  font-weight: bold;
+  color: #183b58;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .quentn-headline {
+    font-size: 48px;
+  }
+}
+
+.quentn-headline-highlight {
+  color: #00AED8;
+}
+
+/* Download button */
+.quentn-download-section {
+  padding-top: 16px;
+}
+
+.quentn-download-btn {
+  background-color: #FBAB4B;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 24px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(251, 171, 75, 0.3);
+  text-decoration: none;
+}
+
+.quentn-download-btn:hover {
+  background-color: rgba(251, 171, 75, 0.9);
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(251, 171, 75, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.quentn-download-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.quentn-download-btn .loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+/* Report cover */
+.quentn-report-section {
+  display: flex;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) {
+  .quentn-report-section {
+    justify-content: flex-end;
+  }
+}
+
+.quentn-report-container {
+  position: relative;
+}
+
+.quentn-report-image {
+  width: 100%;
+  max-width: 384px;
+  height: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.quentn-report-image:hover {
+  transform: scale(1.05);
+}
+
+.quentn-report-container::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: -16px;
+  bottom: -16px;
+  background: linear-gradient(45deg, rgba(0, 174, 216, 0.2), rgba(251, 171, 75, 0.2));
+  border-radius: 8px;
+  filter: blur(16px);
+  z-index: -1;
+}
+
+/* Content section */
+.quentn-content-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  padding: 48px;
+  margin-top: 64px;
+  animation: fadeIn 0.6s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .quentn-content-section {
+    padding: 32px;
+  }
+}
+
+.quentn-content-text {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.quentn-content-text.large {
+  font-size: 20px;
+  color: #183b58;
+  font-weight: 600;
+}
+
+.quentn-content-text.highlight {
+  color: #00AED8;
+  font-weight: 500;
+}
+
+.quentn-content-callout {
+  background: rgba(0, 174, 216, 0.05);
+  border-left: 4px solid #00AED8;
+  padding: 24px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 24px;
+}
+
+.quentn-callout-title {
+  font-weight: 600;
+  color: #183b58;
+  margin-bottom: 8px;
+}
+
+/* Call-to-action footer */
+.quentn-cta-footer {
+  margin-top: 48px;
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.quentn-cta-box {
+  background: linear-gradient(135deg, #183b58 0%, #00AED8 100%);
+  border-radius: 16px;
+  padding: 32px;
+  color: white;
+}
+
+.quentn-cta-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.quentn-cta-text {
+  font-size: 18px;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Icon styles */
+.quentn-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.quentn-icon.small {
+  width: 20px;
+  height: 20px;
+}
+
+/* Toast notification */
+.quentn-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4ade80;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.quentn-toast.show {
+  transform: translateX(0);
+}
+
+.quentn-toast-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.quentn-toast-message {
+  font-size: 14px;
+  opacity: 0.9;
+}

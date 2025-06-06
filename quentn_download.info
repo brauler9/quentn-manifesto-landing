@@ -1,0 +1,9 @@
+
+name = Quentn Download Page
+description = Download page for the 13-Schritte-Report
+core = 7.x
+version = 7.x-1.0
+package = Quentn
+
+stylesheets[all][] = quentn_download.css
+scripts[] = quentn_download.js

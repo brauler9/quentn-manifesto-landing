@@ -1,0 +1,103 @@
+
+<?php
+
+/**
+ * @file
+ * Quentn Download Page module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function quentn_download_menu() {
+  $items = array();
+  
+  $items['quentn-download'] = array(
+    'title' => 'Quentn 13-Schritte-Report Download',
+    'page callback' => 'quentn_download_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  
+  $items['quentn-download/ajax'] = array(
+    'title' => 'Download Report AJAX',
+    'page callback' => 'quentn_download_ajax',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function quentn_download_theme() {
+  return array(
+    'quentn_download_page' => array(
+      'template' => 'quentn-download-page',
+      'variables' => array(),
+    ),
+  );
+}
+
+/**
+ * Page callback for the download page.
+ */
+function quentn_download_page() {
+  // Add CSS and JS
+  drupal_add_css(drupal_get_path('module', 'quentn_download') . '/quentn_download.css');
+  drupal_add_js(drupal_get_path('module', 'quentn_download') . '/quentn_download.js');
+  
+  // Add AJAX settings
+  drupal_add_js(array(
+    'quentn_download' => array(
+      'ajax_url' => url('quentn-download/ajax'),
+    ),
+  ), 'setting');
+  
+  return theme('quentn_download_page');
+}
+
+/**
+ * AJAX callback for download functionality.
+ */
+function quentn_download_ajax() {
+  // Simulate download process
+  sleep(1); // Simulate processing time
+  
+  // Log the download
+  watchdog('quentn_download', '13-Schritte-Report downloaded', array(), WATCHDOG_INFO);
+  
+  // Return success response
+  drupal_json_output(array(
+    'status' => 'success',
+    'message' => 'Download gestartet! Dein 13-Schritte-Report wird heruntergeladen.',
+  ));
+}
+
+/**
+ * Implements hook_init().
+ */
+function quentn_download_init() {
+  // Add meta tags for SEO
+  if (current_path() == 'quentn-download') {
+    $meta_description = array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'description',
+        'content' => 'Lade dir jetzt den kostenlosen 13-Schritte-Report für mehr Kunden und Umsatz herunter',
+      ),
+    );
+    drupal_add_html_head($meta_description, 'quentn_download_description');
+    
+    $meta_author = array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'author',
+        'content' => 'Quentn',
+      ),
+    );
+    drupal_add_html_head($meta_author, 'quentn_download_author');
+  }
+}
